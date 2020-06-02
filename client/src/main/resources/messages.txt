@@ -1,0 +1,7 @@
+m: Hello
+cmd: ls
+m: What are you doing?
+m: wassup?
+cmd: pwd
+m: This is the Palash. Are you up?
+m: finished
