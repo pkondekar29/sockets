@@ -22,13 +22,13 @@ There are 2 applications of server and client.
 
 The client application has the following components -
   - ClientSocket: This picks up random message from "messages.txt" file and pushes it the server
-    - The client socket follows a template pattern. The template process is as follows -
-      a. Pick a random message from file
-      b. Get a Message object from string using a MessageFactory
-      c. Convert the it to JSON
-      d. Encrypt it
-      e. Send to to server
-      f. Wait for acknowledgment
+    - The client socket follows a template pattern. The template process is as follows -<br>
+      a. Pick a random message from file<br>
+      b. Get a Message object from string using a MessageFactory<br>
+      c. Convert the it to JSON<br>
+      d. Encrypt it<br>
+      e. Send to to server<br>
+      f. Wait for acknowledgment<br>
       <br>
   - Message Interface: The message interface is a template for the messages supported by client
     - The type of messages supported are - TEXT, COMMAND
@@ -53,16 +53,16 @@ The client application has the following components -
 The server application has the following components:
  - SocketServer: This server is initialised on application start and listens to client messages
   - The server by default listens to port 5000
-  - This also follows the template design as follows:
-    a. Listens for client messages.
-    b. Establishes a connection with client
-    c. Reads the message
-    d. Decrypts the message to JSON string
-    e. Generates a Message obj using MessageFactory
-    f. Pushes the message to a priority queue
-    g. Polls the queue to get the message
-    h. Delegates the task to process the message to MessageHandler
-    g. Returns an acknowledgments if the handler is able to handle the message, else returns a not acknowledged message
+  - This also follows the template design as follows:<br>
+    a. Listens for client messages.<br>
+    b. Establishes a connection with client<br>
+    c. Reads the message<br>
+    d. Decrypts the message to JSON string<br>
+    e. Generates a Message obj using MessageFactory<br>
+    f. Pushes the message to a priority queue<br>
+    g. Polls the queue to get the message<br>
+    h. Delegates the task to process the message to MessageHandler<br>
+    i. Returns an acknowledgments if the handler is able to handle the message, else returns a not acknowledged message<br>
     <br>
 - MessageHandler: This is interface for handling the Message obj. The interface has only 1 API, i.e, to handle.
   - The implementations of this are TextMessageHandler, CommandMessageHandler
