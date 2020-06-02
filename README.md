@@ -8,11 +8,15 @@ An application with server and client using sockets to transfer data with each o
 # How to run
 
 **1. Server**
+  - Navigate to project directory
   - Run command 
+  > *mvn clean install -f server*<br>
   > *mvn exec:java -Dexec.mainClass=com.signzy.ServerApp -f server*
   
 **2. Client**
+  - Navigate to project directory
   - Get the ip of the server application and run command 
+  > *mvn clean install -f client*<br>
   > *mvn exec:java -Dexec.mainClass=com.signzy.ClientApp -f client -Dexec.args="<ip_address> 5000"*
 
 # Project Design
