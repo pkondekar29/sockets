@@ -10,6 +10,7 @@ An application with server and client using sockets to transfer data with each o
 **1. Server**
   - Run command 
   > *mvn exec:java -Dexec.mainClass=com.signzy.ServerApp -f server*
+  
 **2. Client**
   - Get the ip of the server application and run command 
   > *mvn exec:java -Dexec.mainClass=com.signzy.ClientApp -f client -Dexec.args="<ip_address> 5000"*
