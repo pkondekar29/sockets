@@ -31,7 +31,6 @@ public class SocketServer {
             	synchronized (SocketServer.class) {
             		message = reader.readLine();
                 	LOG.info("Received message: " + message);
-                	
 				}
             } catch (IOException e) {
                 LOG.log(Level.FINEST, "Error in accepting the message", e);

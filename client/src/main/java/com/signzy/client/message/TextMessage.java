@@ -1,6 +1,8 @@
-package com.signzy.client;
+package com.signzy.client.message;
 
-public class TextMessage implements Message {
+import com.signzy.client.message.type.MessageType;
+
+public class TextMessage extends AbstractMessage {
 
 	/**
 	 * 
@@ -10,6 +12,7 @@ public class TextMessage implements Message {
 	private String message;
 	
 	public TextMessage(String message) {
+		super(MessageType.MESSAGE);
 		this.message = message;
 	}
 	
