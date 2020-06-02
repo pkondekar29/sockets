@@ -7,6 +7,10 @@ import com.signzy.message.Message;
 import com.signzy.message.TextMessage;
 import com.signzy.message.type.MessageType;
 
+/**
+ *	Utility to convert json string to {@link Message} 
+ * 
+ */
 public class JsonUtils {
 
 	private JsonUtils() {}

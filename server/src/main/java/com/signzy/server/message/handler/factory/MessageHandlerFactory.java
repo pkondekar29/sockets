@@ -5,10 +5,20 @@ import com.signzy.message.handler.MessageHandler;
 import com.signzy.message.handler.TextMessageHandler;
 import com.signzy.message.type.MessageType;
 
+/**
+ *	Factory for {@link MessageHandler} 
+ * 
+ */
 public class MessageHandlerFactory {
 
 	private MessageHandlerFactory() {}
 
+	/**
+	 * Returns a message handler based on {@link MessageType}
+	 * 
+	 * @param messageType
+	 * @return
+	 */
 	public static MessageHandler getHandler(MessageType messageType) {
 		switch (messageType) {
 			case COMMAND:

@@ -4,12 +4,21 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.signzy.message.CommandMessage;
 import com.signzy.message.Message;
 
+/**
+ *	handles a {@link CommandMessage} 
+ * 
+ */
 public class CommandMessageHandler implements MessageHandler {
 
 	private static final Logger LOG = Logger.getLogger(CommandMessageHandler.class.getName());
 	
+	/**
+	 * Runs the command on command line and return true or false
+	 * 
+	 */
 	@Override
 	public boolean handle(Message message) {
 		boolean commandExecuted = false;

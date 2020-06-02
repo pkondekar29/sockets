@@ -12,11 +12,16 @@ import java.util.logging.Logger;
 
 import com.signzy.configuration.ServerConfiguration;
 import com.signzy.message.Message;
+import com.signzy.message.handler.MessageHandler;
 import com.signzy.message.utils.JsonUtils;
 import com.signzy.queue.MessageQueue;
 import com.signzy.security.RSAEncrypterDecrypter;
 import com.signzy.server.message.handler.factory.MessageHandlerFactory;
 
+/**
+ *	Socket server to listen to clien messages 
+ * 
+ */
 public class SocketServer {
 
     private static final Logger LOG = Logger.getLogger(SocketServer.class.getName());
@@ -33,24 +38,41 @@ public class SocketServer {
 		}
     }
 
+    /**
+     * Starts listening to client messages
+     * 
+     * @throws IOException
+     */
     public void startServer() throws IOException {
         String jsonStr = null;
         LOG.info("Server listening at " + ServerConfiguration.PORT);
         while(!isStopped()) {
+        	// 1. Accept a connection from client
         	Socket socket = getServerSocket().accept();
             try(BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             		BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()))) {
+            	
+            	// 2. Read the json string
             	jsonStr = reader.readLine();
+            	
+            	// 3. Decrypt the string
             	String decryptedStr = RSAEncrypterDecrypter.decrypt(jsonStr, PRIVATE_KEY);
             	LOG.log(Level.FINE, String.format("Received message: %s", decryptedStr));
             	
+            	// 4. Create a messge obj from the string
         		Message message = JsonUtils.getMessage(decryptedStr);
         		
+        		// 5. Add to queue
         		MessageQueue.put(message);
         		
+        		// 6. Poll the queue
         		message = MessageQueue.poll();
         		if(message != null) {
-        			boolean handled = MessageHandlerFactory.getHandler(message.getMessageType()).handle(message);
+        			// 7. Get the message handler for the message
+        			MessageHandler handler = MessageHandlerFactory.getHandler(message.getMessageType());
+        			// 8. Handle the message
+        			boolean handled = handler.handle(message);
+        			// 9. Send the response
         			if(handled) {
         				writer.write("ACK" + "\n");
         			} else {
@@ -74,6 +96,11 @@ public class SocketServer {
         return this.serverSocket;
     }
 
+	/**
+	 * Initialize the server socket
+	 * 
+	 * @throws IOException
+	 */
     private void init() throws IOException {
         try {
             this.serverSocket = new ServerSocket(ServerConfiguration.PORT);

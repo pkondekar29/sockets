@@ -1,8 +1,14 @@
 package com.signzy.message.type;
 
+/**
+ *		Messages supported by server 
+ * 
+ */
 public enum MessageType {
 
+	/** Text message */
 	TEXT("m"),
+	/** Command message */
 	COMMAND("cmd");
 	
 	private String type;

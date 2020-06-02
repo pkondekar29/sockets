@@ -2,6 +2,10 @@ package com.signzy.client.message;
 
 import com.signzy.client.message.type.MessageType;
 
+/**
+ *	Text message implementation of Message 
+ * 
+ */
 public class TextMessage extends AbstractMessage {
 
 	/**
