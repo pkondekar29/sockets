@@ -1,4 +1,4 @@
-package com.signzy.client.message.utils;
+package com.signzy.message.factory;
 
 import com.signzy.client.message.CommandMessage;
 import com.signzy.client.message.Message;

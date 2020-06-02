@@ -14,7 +14,7 @@ public final class ClientApp {
      * @throws UnknownHostException 
      */
     public static void main(String[] args) throws Exception {
-    	ClientSocket socket = new ClientSocket();
+    	ClientSocket socket = new ClientSocket(args[0], Integer.parseInt(args[1]));
     	socket.startSendingMessages();
     }
 }

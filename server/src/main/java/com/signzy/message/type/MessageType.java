@@ -1,4 +1,4 @@
-package com.signzy.client.message.type;
+package com.signzy.message.type;
 
 public enum MessageType {
 

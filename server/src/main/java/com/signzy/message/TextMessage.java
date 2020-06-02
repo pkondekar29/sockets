@@ -1,6 +1,6 @@
-package com.signzy.client.message;
+package com.signzy.message;
 
-import com.signzy.client.message.type.MessageType;
+import com.signzy.message.type.MessageType;
 
 public class TextMessage extends AbstractMessage {
 
