@@ -14,7 +14,7 @@ An application with server and client using sockets to transfer data with each o
   - Get the ip of the server application and run command 
   > mvn exec:java -Dexec.mainClass=com.signzy.ClientApp -f client -Dexec.args="<ip_address> 5000"
 
-# Project structure
+# Project Design
 
 There are 2 applications of server and client. 
 
@@ -71,8 +71,19 @@ The server application has the following components:
   <br>
 - MessageHandlerFactory: This factory returns a MessageHandler implmentation based on the message type
 
-- MessageQueue: A queue to store/poll the incoming messages
+- MessageQueue: A queue to store/poll the messages
 
 - Message: Same as the client application interface with exact same implmentations
 
 - RSAEncrypterDecrypter: Decrypts the messages sent by clients.
+
+## Assumptions
+
+- A single message from message.txt file is in a single line. Also it follows the following format:
+  - Text message
+    - A simple text message is prefixed with `m:`
+  - Command message
+    - A command message is prefixed with `cmd:`
+- The server runs on port 5000
+- The server is single threaded application so the server can either accept a connection with the client (or) or process the message from client.
+- The private and public key are generated using KeyPairGenerator and are already shared among the client and server.
