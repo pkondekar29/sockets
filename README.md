@@ -92,3 +92,4 @@ The server application has the following components:
 - The server runs on port 5000
 - The server is single threaded application so the server can either accept a connection with the client (or) or process the message from client.
 - The private and public key are generated using KeyPairGenerator and are already shared among the client and server.
+- The server send ACK as acknowledged for the message and NACK for not acknowledged
