@@ -15,6 +15,10 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+/**
+ *	RSA encrypter and decrypter 
+ * 
+ */
 public class RSAEncrypterDecrypter {
 
 	private static final Logger LOG = Logger.getLogger(RSAEncrypterDecrypter.class.getName());
@@ -35,6 +39,18 @@ public class RSAEncrypterDecrypter {
         return publicKey;
     }
 
+    /**
+     * Encrypts the data using RSA algorithm
+     * 
+     * @param data
+     * @param publicKey
+     * @return
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     * @throws InvalidKeyException
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     */
     public static byte[] encrypt(String data, String publicKey) throws BadPaddingException, IllegalBlockSizeException, InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException {
         Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
         cipher.init(Cipher.ENCRYPT_MODE, getPublicKey(publicKey));

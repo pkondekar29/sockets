@@ -5,6 +5,10 @@ import com.signzy.message.Message;
 import com.signzy.message.TextMessage;
 import com.signzy.message.type.MessageType;
 
+/**
+ *	Message Factory to generate {@link Message} from input message string 
+ * 
+ */
 public class MessageFactory {
 
 	private MessageFactory() {}

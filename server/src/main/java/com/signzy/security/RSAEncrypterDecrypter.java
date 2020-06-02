@@ -15,6 +15,10 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
+/**
+ *	RSA encyption and decyption utility 
+ * 
+ */
 public class RSAEncrypterDecrypter {
 
 	private static final Logger LOG = Logger.getLogger(RSAEncrypterDecrypter.class.getName());
@@ -45,6 +49,18 @@ public class RSAEncrypterDecrypter {
         return new String(cipher.doFinal(data));
     }
 
+    /**
+     * Decrypts the input message
+     * 
+     * @param data
+     * @param base64PrivateKey
+     * @return
+     * @throws IllegalBlockSizeException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws NoSuchPaddingException
+     */
     public static String decrypt(String data, String base64PrivateKey) throws IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
         return decrypt(Base64.getDecoder().decode(data.getBytes()), getPrivateKey(base64PrivateKey));
     }

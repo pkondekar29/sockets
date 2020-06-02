@@ -4,6 +4,10 @@ import java.io.IOException;
 
 import com.signzy.server.SocketServer;
 
+/**
+ *	Server application for socket 
+ * 
+ */
 public final class ServerApp {
     private ServerApp() {
     }

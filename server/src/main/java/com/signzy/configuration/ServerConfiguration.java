@@ -1,5 +1,9 @@
 package com.signzy.configuration;
 
+/**
+ *	Server Configuration 
+ * 
+ */
 public class ServerConfiguration {
 
     private ServerConfiguration() {}

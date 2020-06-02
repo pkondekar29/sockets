@@ -4,6 +4,10 @@ import java.net.UnknownHostException;
 
 import com.signzy.client.ClientSocket;
 
+/**
+ * Client application to connect to server
+ *
+ */
 public final class ClientApp {
     private ClientApp() {
     }

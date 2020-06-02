@@ -1,10 +1,7 @@
 package com.signzy.client;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataOutputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -24,6 +21,10 @@ import com.signzy.client.message.utils.JsonUtils;
 import com.signzy.client.security.RSAEncrypterDecrypter;
 import com.signzy.message.factory.MessageFactory;
 
+/**
+ *	Client socket which connects to Server 
+ *
+ */
 public class ClientSocket {
 
 	private int serverPort;
@@ -47,6 +48,11 @@ public class ClientSocket {
 		}
 	}
 	
+	/**
+	 * Sends message to server
+	 * 
+	 * @throws Exception
+	 */
 	public void startSendingMessages() throws Exception {
 		Message message = null;
 		while(!isStopped()) {
@@ -75,10 +81,20 @@ public class ClientSocket {
 		}
 	}
 
+	/**
+	 * Returns if the client is stopped
+	 * 
+	 * @return
+	 */
 	private boolean isStopped() {
 		return false;
 	}
 
+	/**
+	 * Returns a random message from file "message.txt"
+	 * 
+	 * @return
+	 */
 	private Message getRandomMessage() {
 		int lineNumber = random.nextInt(count);
 		try(Stream<String> lines = Files.lines(Paths.get(ClientSocket.class.getClassLoader().getResource("messages.txt").toURI()))) {

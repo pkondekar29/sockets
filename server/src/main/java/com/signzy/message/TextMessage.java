@@ -2,6 +2,10 @@ package com.signzy.message;
 
 import com.signzy.message.type.MessageType;
 
+/**
+ *	Text message implementation of {@link Message} 
+ * 
+ */
 public class TextMessage extends AbstractMessage {
 
 	/**
@@ -12,6 +16,7 @@ public class TextMessage extends AbstractMessage {
 	private String message;
 	
 	public TextMessage(String message) {
+		// Initialise super class with MessageType -> TEXT
 		super(MessageType.TEXT);
 		this.message = message;
 	}
