@@ -73,6 +73,9 @@ public class ClientSocket {
 				
 				// 5. Get for ack
 				String serverRespone = br.readLine();
+				while(serverRespone == null) {
+					serverRespone = br.readLine();
+				}
 				LOG.info("Received server response: " + serverRespone);
 			} catch (IOException e) {
 				LOG.log(Level.FINEST, e.getMessage());
